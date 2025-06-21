@@ -44,6 +44,18 @@
 
 ---
 
+## 🗺️ Interactive 3D Reconstruction
+
+<p align="center">
+  <iframe title="SpotMAP 3D Reconstruction" frameborder="0" width="800" height="600"
+    src="https://skfb.ly/pyuMs">
+  </iframe>
+  <br>
+  <em>Interact with the reconstruction directly in your browser!</em>
+</p>
+
+---
+
 ## 🎥 Featured Demos
 
 - **Scene Mapping & Segmentation**
@@ -73,7 +85,6 @@ Each sequence includes:
 - **RGB images**
 - **Depth maps**
 - **Camera poses**
-
 
 ---
 
