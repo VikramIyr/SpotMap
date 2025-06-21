@@ -2,8 +2,10 @@
 
 ## Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs
 
-**Vikram Iyer\*, Yagiz Sogancioglu\*, Roham Rahimi\*, Kerem Acar**  
+**Vikram Iyer\*, Yagiz Devre\*, Roham Zendehdel Nobari\*, Kerem Kılıc**  
 *ETH Zürich*
+
+[📄 **Paper**](https://arxiv.org/abs/2506.12345) &nbsp; | &nbsp; [💻 **Code**](https://github.com/your_repo_link) &nbsp; | &nbsp; [🎥 **Video**](https://your_video_link)
 
 ---
 
@@ -50,18 +52,6 @@ Each sequence includes:
 - **Depth maps**
 - **Pose estimates**
 - **Per-frame instance masks**
-
----
-
-## 🦾 Gripper Extension
-
-To enable more reliable object interaction and grasping, a **custom 3D-printed gripper extension** is designed to attach to Spot’s end-effector.  
-You can download the CAD file (`.stl`) directly from this repository.  
-Need a parametric version? Feel free to contact us for the Fusion 360 source file.
-
-<p align="center">
-  <img src="images/gripper_extension.png" alt="Gripper Extension CAD" width="400"/>
-</p>
 
 ---
 
