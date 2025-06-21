@@ -2,21 +2,32 @@
 
 ## Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs
 
-**Vikram Iyer\*, Yagiz Devre\*, Roham Zendehdel Nobari\*, Kerem Kılıc**  
+**Vikram Iyer\*, Yagiz Devre\*, Roham Zendehdel Nobari\*, Kerem Kılıç**  
 *ETH Zürich*
 
-[📄 **Paper**](https://arxiv.org/abs/2506.12345) &nbsp; | &nbsp; [💻 **Code**](https://github.com/your_repo_link) &nbsp; | &nbsp; [🎥 **Video**](https://your_video_link)
+<p align="center">
+  <a href="https://arxiv.org/abs/2506.12345">
+    <img src="https://img.shields.io/badge/Paper-arXiv-red?style=for-the-badge&logo=arxiv" alt="Paper">
+  </a>
+  <a href="https://github.com/your_repo_link">
+    <img src="https://img.shields.io/badge/Code-GitHub-black?style=for-the-badge&logo=github" alt="Code">
+  </a>
+  <a href="https://your_video_link">
+    <img src="https://img.shields.io/badge/Video-Demo-yellow?style=for-the-badge&logo=youtube" alt="Video">
+  </a>
+</p>
 
 ---
 
 ## 📌 Pipeline
 
-SpotMAP integrates:
-- Robust on-board **SLAM**
-- Volumetric **3D reconstruction**
-- **Instance segmentation** of objects in the scene
-- **Dynamic scene graph generation** to maintain a structured semantic map
-- Basic **affordance estimation** for future interaction planning
+**SpotMAP** provides an end-to-end system for onboard robotic scene understanding. It combines:
+
+- Robust on-board **SLAM**  
+- High-fidelity **3D reconstruction**
+- Accurate **instance segmentation**
+- **Dynamic scene graph generation** for structured semantic mapping
+- Basic **affordance estimation** for planning interactions
 
 <p align="center">
   <img src="images/pipeline_overview.png" alt="SpotMAP Pipeline" width="800"/>
@@ -26,14 +37,16 @@ SpotMAP integrates:
 
 ---
 
-## 🎥 Featured Videos
+## 🎥 Featured Demos
 
-- **Scene Mapping and Segmentation**  
+- **Scene Mapping & Segmentation**
+
   <p align="center">
     <img src="images/mapping_demo.gif" alt="Mapping Demo" width="600"/>
   </p>
 
-- **Interactive Updates**  
+- **Interactive Updates**
+
   <p align="center">
     <img src="images/interaction_demo.gif" alt="Interaction Demo" width="600"/>
   </p>
@@ -42,27 +55,29 @@ SpotMAP integrates:
 
 ## 🗂️ Dataset
 
-SpotMAP uses RGB-D sequences recorded onboard the Boston Dynamics Spot, covering:
+SpotMAP uses RGB-D sequences captured with the Boston Dynamics Spot, covering:
+
 - Diverse indoor scenes
-- Varying illumination and occlusions
-- Fine-grained instance masks for common indoor objects
+- Challenging lighting and occlusions
+- Fine-grained object instance masks
 
 Each sequence includes:
+
 - **RGB images**
 - **Depth maps**
-- **Pose estimates**
+- **Camera poses**
 - **Per-frame instance masks**
 
 ---
 
-## 📄 BibTeX
+## 📄 Citation
 
-If you use SpotMAP in your work, please cite:
+If you find SpotMAP useful in your research, please cite:
 
 ```bibtex
-@misc{iyer2025spotmaproboticsceneunderstanding,
+@misc{iyer2025spotmap,
   title = {SpotMAP: Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs},
-  author = {Vikram Iyer and Yagiz Sogancioglu and Roham Rahimi and Kerem Acar},
+  author = {Vikram Iyer and Yagiz Devre and Roham Zendehdel Nobari and Kerem Kılıç},
   year = {2025},
   eprint = {arXiv:2506.12345},
   archivePrefix = {arXiv},
