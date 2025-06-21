@@ -1,77 +1,81 @@
-# SpotMAP: Robotic Scene Understanding and Mapping
+# ![SpotMAP Logo](images/spotmap_logo.png)
 
-Welcome to the **SpotMAP** project website!  
-SpotMAP is a robust, modular pipeline for robotic scene reconstruction and semantic understanding, designed for use with mobile robots like Boston Dynamics Spot.
+## Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs
 
----
-
-## 📌 What is SpotMAP?
-
-SpotMAP brings together:
-- **On-board SLAM** — for pose estimation and navigation
-- **Volumetric 3D Reconstruction** — for accurate scene geometry
-- **Instance Segmentation** — for recognizing and isolating objects
-- **Dynamic Scene Graphs** — for structured, updatable scene understanding
-- **Affordance Prediction** — for inferring how to interact with objects
-
-This pipeline helps robots build rich, meaningful maps of their environments with minimal human input.
+**Vikram Iyer\*, Yagiz Sogancioglu\*, Roham Rahimi\*, Kerem Acar**  
+*ETH Zürich*
 
 ---
 
-## 🚀 Get Started
+## 📌 Pipeline
 
-- 📖 [Project Repository](https://github.com/yourusername/SpotMAP)
-- 📄 [Installation Guide](./installation.md)
-- 🏃 [Usage Examples](./usage.md)
-- 📝 [API Reference](./api.md)
+SpotMAP integrates:
+- Robust on-board **SLAM**
+- Volumetric **3D reconstruction**
+- **Instance segmentation** of objects in the scene
+- **Dynamic scene graph generation** to maintain a structured semantic map
+- Basic **affordance estimation** for future interaction planning
 
----
-
-## 📂 Documentation
-
-We provide detailed instructions for:
-- ✅ Installation & environment setup
-- ✅ Running training & testing pipelines
-- ✅ Customizing configurations
-- ✅ Adding new modules
-
-See [Docs Overview](./docs.md) for a full table of contents.
+<p align="center">
+  <img src="images/pipeline_overview.png" alt="SpotMAP Pipeline" width="800"/>
+  <br>
+  <em>Figure: Overview of the SpotMAP pipeline modules.</em>
+</p>
 
 ---
 
-## 📊 Demo & Results
+## 🎥 Featured Videos
 
-Curious about what SpotMAP can do?  
-Check out:
-- 📹 [Video Demo](./demo.md)
-- 📸 [Example Reconstructions](./examples.md)
+- **Scene Mapping and Segmentation**  
+  <p align="center">
+    <img src="images/mapping_demo.gif" alt="Mapping Demo" width="600"/>
+  </p>
 
----
-
-## 🤝 Contributing
-
-We welcome contributions!  
-If you'd like to add features, fix bugs, or improve docs:
-- Open an issue to discuss
-- Fork the repo and submit a pull request
-- Read our [Contributing Guide](./contributing.md)
+- **Interactive Updates**  
+  <p align="center">
+    <img src="images/interaction_demo.gif" alt="Interaction Demo" width="600"/>
+  </p>
 
 ---
 
-## 📧 Contact
+## 🗂️ Dataset
 
-Have questions or want to collaborate?  
-Reach out via [GitHub Issues](https://github.com/yourusername/SpotMAP/issues)  
-or email: **your.email@example.com**
+SpotMAP uses RGB-D sequences recorded onboard the Boston Dynamics Spot, covering:
+- Diverse indoor scenes
+- Varying illumination and occlusions
+- Fine-grained instance masks for common indoor objects
+
+Each sequence includes:
+- **RGB images**
+- **Depth maps**
+- **Pose estimates**
+- **Per-frame instance masks**
 
 ---
 
-## 📜 License
+## 🦾 Gripper Extension
 
-This project is licensed under the **MIT License**.  
-See [LICENSE](./LICENSE) for details.
+To enable more reliable object interaction and grasping, a **custom 3D-printed gripper extension** is designed to attach to Spot’s end-effector.  
+You can download the CAD file (`.stl`) directly from this repository.  
+Need a parametric version? Feel free to contact us for the Fusion 360 source file.
+
+<p align="center">
+  <img src="images/gripper_extension.png" alt="Gripper Extension CAD" width="400"/>
+</p>
 
 ---
 
-> _SpotMAP — Enabling robots to see, understand, and interact with the world around them._
+## 📄 BibTeX
 
+If you use SpotMAP in your work, please cite:
+
+```bibtex
+@misc{iyer2025spotmaproboticsceneunderstanding,
+  title = {SpotMAP: Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs},
+  author = {Vikram Iyer and Yagiz Sogancioglu and Roham Rahimi and Kerem Acar},
+  year = {2025},
+  eprint = {arXiv:2506.12345},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.RO},
+  url = {https://arxiv.org/abs/2506.12345}
+}
