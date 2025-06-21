@@ -1,9 +1,15 @@
-# ![SpotMAP Logo](images/spotmap_logo.png)
+# <p align="center">
+  <img src="images/spotmap_logo.png" alt="SpotMAP Logo">
+</p>
 
-## Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs
+<h2 align="center">
+  Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs
+</h2>
 
-**Vikram Iyer\*, Yagiz Devre\*, Roham Zendehdel Nobari\*, Kerem Kılıç**  
-*ETH Zürich*
+<p align="center">
+  <strong>Vikram Iyer<sup>1</sup>, Yagiz Devre<sup>2</sup>, Roham Zendehdel Nobari<sup>1</sup>, Kerem Kılıç<sup>1</sup></strong><br>
+  <em>ETH Zürich<sup>1</sup>, Princeton<sup>2</sup></em>
+</p>
 
 <p align="center">
   <a href="https://arxiv.org/abs/2506.12345">
@@ -23,7 +29,8 @@
 
 **SpotMAP** provides an end-to-end system for onboard robotic scene understanding. It combines:
 
-- Robust on-board **SLAM**  
+- Time synced data extraction
+- Robust **SLAM**  
 - High-fidelity **3D reconstruction**
 - Accurate **instance segmentation**
 - **Dynamic scene graph generation** for structured semantic mapping
@@ -66,7 +73,7 @@ Each sequence includes:
 - **RGB images**
 - **Depth maps**
 - **Camera poses**
-- **Per-frame instance masks**
+
 
 ---
 
