@@ -25,33 +25,21 @@
 
 ---
 
-## 📌 Pipeline
+## 📌 Overview
 
-**SpotMAP** provides an end-to-end system for onboard robotic scene understanding. It combines:
+**SpotMAP** is an end-to-end framework for autonomous robotic scene understanding. It integrates:
 
-- Time synced data extraction
-- Robust **SLAM**  
+- Time-synchronized data extraction
+- Robust on-board **SLAM**
 - High-fidelity **3D reconstruction**
-- Accurate **instance segmentation**
+- Precise **instance segmentation**
 - **Dynamic scene graph generation** for structured semantic mapping
-- Basic **affordance estimation** for planning interactions
+- Basic **affordance estimation** to support interaction planning
 
 <p align="center">
   <img src="images/pipeline_overview.png" alt="SpotMAP Pipeline" width="800"/>
   <br>
   <em>Figure: Overview of the SpotMAP pipeline modules.</em>
-</p>
-
----
-
-## 🗺️ Interactive 3D Reconstruction
-
-<p align="center">
-  <a href="https://YOUR_USERNAME.github.io/YOUR_REPO/">
-    <img src="images/reconstruction_screenshot.png" alt="SpotMAP 3D Viewer" width="800"/>
-  </a>
-  <br>
-  <em>Click the image to interact with the reconstruction in your browser (self-hosted viewer, no login required).</em>
 </p>
 
 ---
@@ -74,13 +62,13 @@
 
 ## 🗂️ Dataset
 
-SpotMAP uses RGB-D sequences captured with the Boston Dynamics Spot, covering:
+SpotMAP operates on RGB-D sequences recorded with the Boston Dynamics Spot robot, featuring:
 
-- Diverse indoor scenes
-- Challenging lighting and occlusions
+- Diverse indoor environments
+- Varying lighting conditions and occlusions
 - Fine-grained object instance masks
 
-Each sequence includes:
+Each sequence provides:
 
 - **RGB images**
 - **Depth maps**
@@ -90,7 +78,7 @@ Each sequence includes:
 
 ## 📄 Citation
 
-If you find SpotMAP useful in your research, please cite:
+If you find **SpotMAP** helpful in your work, please cite:
 
 ```bibtex
 @misc{iyer2025spotmap,
