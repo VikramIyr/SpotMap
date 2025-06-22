@@ -47,11 +47,11 @@
 ## 🗺️ Interactive 3D Reconstruction
 
 <p align="center">
-  <iframe title="SpotMAP 3D Reconstruction" frameborder="0" width="800" height="600"
-    src="https://skfb.ly/pyuMs">
-  </iframe>
+  <a href="https://YOUR_USERNAME.github.io/YOUR_REPO/">
+    <img src="images/reconstruction_screenshot.png" alt="SpotMAP 3D Viewer" width="800"/>
+  </a>
   <br>
-  <em>Interact with the reconstruction directly in your browser!</em>
+  <em>Click the image to interact with the reconstruction in your browser (self-hosted viewer, no login required).</em>
 </p>
 
 ---
