@@ -1,6 +1,7 @@
 <p align="center">
-  <img src="images/spotmap_logo.png" alt="SpotMAP Logo">
+  <img src="images/spotmap_logo.png" alt="SpotMAP Logo" width="200" />
 </p>
+
 
 <h2 align="center">
   Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs
