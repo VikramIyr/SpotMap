@@ -10,14 +10,20 @@
 
 ```plaintext
 SpotMAP/
-├── src/          # Source code: models, datasets, pipeline modules
-├── configs/      # Configuration files for experiments
-├── scripts/      # Shell scripts to run training and evaluation
-├── data/         # Instructions or scripts to prepare datasets
-├── results/      # Logs, checkpoints, and example outputs
-├── notebooks/    # Jupyter notebooks for demos and analysis
+├── src/          # Source code: models, datasets, pipeline 
+├── configs/      # Configuration files 
+├── scripts/      # Shell scripts 
+├── data/         
 ├── docs/         # Additional documentation and figures
-├── paper/        # PDF of the paper, supplementary material, and citation info
+```
+### 📂 Source code
+```plaintext
+src/
+├── /           
+├── /       
+├── /      
+├── /         
+├── /         
 ```
 ---
 
@@ -58,8 +64,7 @@ If you find this work useful, please cite our paper:
 
 ## 📧 Contact
 
-For questions or issues, please open a [GitHub Issue](https://github.com/yourusername/SpotMAP/issues)  
-or reach out via email: **your.email@example.com**
+For questions or issues, please open a [GitHub Issue](https://github.com/VikramIyr/SpotMap/issues)
 
 ---
 
