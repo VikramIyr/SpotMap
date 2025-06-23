@@ -198,3 +198,10 @@ footer a {
   display: inline-block;
   line-height: 1;
 }
+
+.social-icon {
+  width: 20px;      /* size it however you like */
+  height: auto;     /* keep aspect ratio */
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
