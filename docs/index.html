@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SpotMAP: Robotic Scene Understanding</title>
 
   <!-- Favicon -->
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
   <!-- External CSS -->
-  <link rel="stylesheet" href="styles.css"/>
-
-  <!-- Three.js core, loaders, and controls -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/PLYLoader.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
@@ -26,26 +21,28 @@
       <strong>Kerem Kılıç<sup>1</sup>, Vikram Iyer<sup>1</sup>, Roham Zendehdel Nobari<sup>1</sup>, Yagiz Devre<sup>2</sup></strong><br>
       <em>ETH Zürich<sup>1</sup>, Princeton<sup>2</sup></em>
     </p>
-    <div class="badges">
-      <a href="https://arxiv.org/abs/2506.12345">
-        <img
-          src="https://img.shields.io/badge/Paper-arXiv-red?style=for-the-badge&logo=arxiv"
-          alt="Paper on arXiv"
-        />
-      </a>
-      <a href="https://github.com/VikramIyr/SpotMap">
-        <img
-          src="https://img.shields.io/badge/Code-GitHub-black?style=for-the-badge&logo=github"
-          alt="Code on GitHub"
-        />
-      </a>
-      <a href="contact.html">
-        <img
-          src="https://img.shields.io/badge/Contact-Us-blue?style=for-the-badge&logo=maildotru"
-          alt="Contact Us"
-        />
-      </a>
-    </div>
+   <div class="badges">
+  <a href="https://arxiv.org/abs/2506.12345">
+    <img
+      src="https://img.shields.io/badge/Paper-arXiv-red?style=for-the-badge&logo=arxiv"
+      alt="Paper on arXiv"
+    />
+  </a>
+  <a href="https://github.com/VikramIyr/SpotMap">
+    <img
+      src="https://img.shields.io/badge/Code-GitHub-black?style=for-the-badge&logo=github"
+      alt="Code on GitHub"
+    />
+  </a>
+  <a href="contact.html">
+    <img
+      src="https://img.shields.io/badge/Contact-Us-blue?style=for-the-badge&logo=maildotru"
+      alt="Contact Us"
+    />
+  </a>
+</div>
+
+
   </header>
 
   <main>
@@ -68,25 +65,12 @@
       <h2>Featured Demos</h2>
       <div class="demo">
         <h3>Live Volumetric Fusion</h3>
-        <iframe width="800" height="450"
-                src="https://www.youtube.com/embed/ETMJrnWWVg8"
-                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/ETMJrnWWVg8" allowfullscreen></iframe>
       </div>
       <div class="demo">
         <h3>Point Cloud after Denoising</h3>
-        <iframe width="800" height="450"
-                src="https://www.youtube.com/embed/un2XTGWSqkM"
-                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/un2XTGWSqkM" allowfullscreen></iframe>
       </div>
-    </section>
-
-    <section id="viewer">
-      <h2>Interactive Point-Cloud Viewer</h2>
-      <div id="threejs-viewer" style="width:800px; height:600px; margin:auto;"></div>
     </section>
 
     <section id="dataset">
@@ -123,6 +107,7 @@
         <img src="images/spot_compose_logo.png" alt="SpotCompose">
         <img src="images/boston_dynamics_logo.png" alt="BostonDynamics">
         <img src="images/cvg_logo.png" alt="CVG">
+
       </div>
     </section>
   </main>
@@ -131,83 +116,5 @@
     <p>Questions or issues? Open an <a href="https://github.com/VikramIyr/SpotMap/issues">issue</a>, and we will answer ASAP.</p>
     <p>&copy; 2025 SpotMAP Project | <a href="LICENSE">MIT License</a></p>
   </footer>
-
-  <!-- Three.js point-cloud initialization -->
-  <script>
-    (function() {
-      const container = document.getElementById('threejs-viewer');
-
-      // Scene + Camera
-      const scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x111111);
-      const camera = new THREE.PerspectiveCamera(
-        75,
-        container.clientWidth / container.clientHeight,
-        0.01,
-        1000
-      );
-      camera.position.set(0, 0, 2);
-
-      // Renderer
-      const renderer = new THREE.WebGLRenderer({ antialias: true });
-      renderer.setSize(container.clientWidth, container.clientHeight);
-      container.appendChild(renderer.domElement);
-
-      // OrbitControls
-      const controls = new THREE.OrbitControls(camera, renderer.domElement);
-      controls.enableDamping = true;
-      controls.dampingFactor = 0.1;
-
-      // Axes helper
-      const axes = new THREE.AxesHelper(0.5);
-      scene.add(axes);
-
-      // Load PLY
-      const loader = new THREE.PLYLoader();
-      loader.load(
-        'pointclouds/mycloud.ply', // <-- update this path to your file
-        function(geometry) {
-          // center geometry
-          geometry.computeBoundingBox();
-          const box = geometry.boundingBox;
-          const center = new THREE.Vector3();
-          box.getCenter(center);
-          geometry.translate(-center.x, -center.y, -center.z);
-
-          // scale if needed
-          geometry.scale(0.01, 0.01, 0.01);
-
-          // points material
-          const material = new THREE.PointsMaterial({
-            size: 0.02,
-            vertexColors: geometry.hasAttribute('color')
-          });
-
-          const points = new THREE.Points(geometry, material);
-          scene.add(points);
-
-          // fit controls
-          controls.target.set(0, 0, 0);
-          controls.update();
-        },
-        // onProgress
-        function(xhr) {
-          console.log(`PLY ${(xhr.loaded/xhr.total*100).toFixed(1)}% loaded`);
-        },
-        // onError
-        function(err) {
-          console.error('Error loading PLY:', err);
-        }
-      );
-
-      // Animate loop
-      function animate() {
-        requestAnimationFrame(animate);
-        controls.update();
-        renderer.render(scene, camera);
-      }
-      animate();
-    })();
-  </script>
 </body>
 </html>
