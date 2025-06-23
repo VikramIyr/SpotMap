@@ -94,5 +94,6 @@ If you use **SpotMAP** in your work, please cite:
 <p align="center">
   <img src="images/open3d_logo.png" alt="Open3D" width="100" style="margin:0 20px;" />
   <img src="images/spotlight_logo.png" alt="SpotLight" width="100" style="margin:0 20px;" />
-  <img src="images/openmask3d_logo.png" alt="OpenMask3D" width="100" style="margin:0 20px;" />
+  <img src="images/openmask3d.png" alt="OpenMask3D" width="100" style="margin:0 20px;" />
+  <img src="images/spot_compose.png" alt="OpenMask3D" width="100" style="margin:0 20px;" />
 </p>
