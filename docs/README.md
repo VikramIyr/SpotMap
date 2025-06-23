@@ -18,12 +18,10 @@
   <a href="https://github.com/your_repo_link">
     <img src="https://img.shields.io/badge/Code-GitHub-black?style=for-the-badge&logo=github" alt="Code">
   </a>
-  <a href="https://youtu.be/Nt4A2XeQVAA">
-    <img src="https://img.shields.io/badge/Video-Demo-yellow?style=for-the-badge&logo=youtube" alt="Video">
-  </a>
 </p>
 
 ---
+
 ## 📌 Overview
 
 **SpotMAP** is an end-to-end framework for autonomous robotic scene understanding. It integrates:
@@ -40,22 +38,32 @@
   <br>
   <em>Figure: Overview of the SpotMAP pipeline modules.</em>
 </p>
+
 ---
+
 ## 🎥 Featured Demos
 
-- **Scene Mapping & Segmentation**
+<p align="center">
+  <iframe width="800" height="450"
+          src="https://www.youtube.com/embed/Nt4A2XeQVAA"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+  </iframe>
+</p>
 
+- **Scene Mapping & Segmentation**  
   <p align="center">
     <img src="images/mapping_demo.gif" alt="Mapping Demo" width="600"/>
   </p>
 
-- **Interactive Updates**
-
+- **Interactive Updates**  
   <p align="center">
     <img src="images/interaction_demo.gif" alt="Interaction Demo" width="600"/>
   </p>
 
 ---
+
 ## 🗂️ Dataset
 
 SpotMAP operates on RGB-D sequences recorded with the Boston Dynamics Spot robot, featuring:
@@ -71,6 +79,7 @@ Each sequence provides:
 - **Camera poses**
 
 ---
+
 ## 📄 Citation
 
 If you find **SpotMAP** helpful in your work, please cite:
