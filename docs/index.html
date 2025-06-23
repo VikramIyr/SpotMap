@@ -10,6 +10,10 @@
 
   <!-- External CSS -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Three.js + PLYLoader -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/PLYLoader.js"></script>
 </head>
 <body>
   <header>
@@ -21,28 +25,26 @@
       <strong>Kerem Kılıç<sup>1</sup>, Vikram Iyer<sup>1</sup>, Roham Zendehdel Nobari<sup>1</sup>, Yagiz Devre<sup>2</sup></strong><br>
       <em>ETH Zürich<sup>1</sup>, Princeton<sup>2</sup></em>
     </p>
-   <div class="badges">
-  <a href="https://arxiv.org/abs/2506.12345">
-    <img
-      src="https://img.shields.io/badge/Paper-arXiv-red?style=for-the-badge&logo=arxiv"
-      alt="Paper on arXiv"
-    />
-  </a>
-  <a href="https://github.com/VikramIyr/SpotMap">
-    <img
-      src="https://img.shields.io/badge/Code-GitHub-black?style=for-the-badge&logo=github"
-      alt="Code on GitHub"
-    />
-  </a>
-  <a href="contact.html">
-    <img
-      src="https://img.shields.io/badge/Contact-Us-blue?style=for-the-badge&logo=maildotru"
-      alt="Contact Us"
-    />
-  </a>
-</div>
-
-
+    <div class="badges">
+      <a href="https://arxiv.org/abs/2506.12345">
+        <img
+          src="https://img.shields.io/badge/Paper-arXiv-red?style=for-the-badge&logo=arxiv"
+          alt="Paper on arXiv"
+        />
+      </a>
+      <a href="https://github.com/VikramIyr/SpotMap">
+        <img
+          src="https://img.shields.io/badge/Code-GitHub-black?style=for-the-badge&logo=github"
+          alt="Code on GitHub"
+        />
+      </a>
+      <a href="contact.html">
+        <img
+          src="https://img.shields.io/badge/Contact-Us-blue?style=for-the-badge&logo=maildotru"
+          alt="Contact Us"
+        />
+      </a>
+    </div>
   </header>
 
   <main>
@@ -65,12 +67,17 @@
       <h2>Featured Demos</h2>
       <div class="demo">
         <h3>Live Volumetric Fusion</h3>
-        <iframe src="https://www.youtube.com/embed/ETMJrnWWVg8" allowfullscreen></iframe>
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/ETMJrnWWVg8" allowfullscreen></iframe>
       </div>
       <div class="demo">
         <h3>Point Cloud after Denoising</h3>
-        <iframe src="https://www.youtube.com/embed/un2XTGWSqkM" allowfullscreen></iframe>
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/un2XTGWSqkM" allowfullscreen></iframe>
       </div>
+    </section>
+
+    <section id="viewer">
+      <h2>Interactive Point-Cloud Viewer</h2>
+      <div id="threejs-viewer" style="width: 800px; height: 600px; margin: auto;"></div>
     </section>
 
     <section id="dataset">
@@ -107,7 +114,6 @@
         <img src="images/spot_compose_logo.png" alt="SpotCompose">
         <img src="images/boston_dynamics_logo.png" alt="BostonDynamics">
         <img src="images/cvg_logo.png" alt="CVG">
-
       </div>
     </section>
   </main>
@@ -116,5 +122,40 @@
     <p>Questions or issues? Open an <a href="https://github.com/VikramIyr/SpotMap/issues">issue</a>, and we will answer ASAP.</p>
     <p>&copy; 2025 SpotMAP Project | <a href="LICENSE">MIT License</a></p>
   </footer>
+
+  <!-- Three.js point-cloud initialization -->
+  <script>
+    (function() {
+      const container = document.getElementById('threejs-viewer');
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.01, 100);
+      camera.position.set(0, 0, 2);
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      container.appendChild(renderer.domElement);
+
+      const loader = new THREE.PLYLoader();
+      // Replace with the actual path to your PLY file:
+      loader.load('pointclouds/mycloud.ply', function(geometry) {
+        geometry.computeVertexNormals();
+        geometry.scale(0.01, 0.01, 0.01);
+
+        const material = new THREE.PointsMaterial({
+          size: 0.005,
+          vertexColors: geometry.hasAttribute('color')
+        });
+        const points = new THREE.Points(geometry, material);
+        scene.add(points);
+
+        // simple animation loop
+        (function animate() {
+          requestAnimationFrame(animate);
+          points.rotation.y += 0.001;
+          renderer.render(scene, camera);
+        })();
+      });
+    })();
+  </script>
 </body>
 </html>
