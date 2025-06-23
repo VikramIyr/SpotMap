@@ -1,6 +1,6 @@
 <h1 align="center">
-  <img src="docs/images/spotmap_logo.png" alt="SpotMAP Logo" width="200" /><br>
-  SpotMAP
+  <img src="docs/images/spotmap_logo.png" alt="SpotMap Logo" width="200" /><br>
+  SpotMap
 </h1>
 
 <p align="center">
@@ -10,7 +10,7 @@
 
 ---
 
-**SpotMAP** is a complete end-to-end pipeline for robotic scene understanding and interactive mapping. It integrates on-board SLAM, volumetric 3D reconstruction, instance segmentation, dynamic scene graph generation, and affordance prediction — giving mobile robots the capability to build detailed maps and understand their surroundings with minimal human supervision.
+**SpotMap** is a complete end-to-end pipeline for robotic scene understanding and interactive mapping. It integrates on-board SLAM, volumetric 3D reconstruction, instance segmentation, dynamic scene graph generation, and affordance prediction — giving mobile robots the capability to build detailed maps and understand their surroundings with minimal human supervision.
 
 ---
 
