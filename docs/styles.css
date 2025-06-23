@@ -40,7 +40,7 @@ header h1 {
   color: #555;
   margin-bottom: 20px;
 }
-.badges {
+/* .badges {
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -59,7 +59,7 @@ header h1 {
 .badge.github {
   background-color: #24292e;
   color: #fff;
-}
+} */
 
 /* Sections */
 main {
@@ -132,8 +132,11 @@ section ul {
 }
 .tools img {
   width: 100px;
-  display: block;
+  height: auto;            /* ensure correct aspect ratio */
+  object-fit: contain;     /* in case you ever constrain height */
+  margin: 0 20px;
 }
+
 
 /* Footer */
 footer {
