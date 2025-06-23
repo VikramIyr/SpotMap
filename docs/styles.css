@@ -172,3 +172,15 @@ footer a {
   background-color: #005fa3;
   color: #ffffff;
 }
+
+/* Add beside or below your existing member-info rules */
+.member-info .social-link {
+  margin-left: 0.5rem;
+  font-size: 0.9em;
+  color: #0077b5;          /* LinkedIn blue */
+  text-decoration: none;
+}
+
+.member-info .social-link:hover {
+  text-decoration: underline;
+}
