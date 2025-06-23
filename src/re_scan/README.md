@@ -1,0 +1,2 @@
+# How to Refine the Scene or Add a New Entity?
+To refine the scene or add a new entity, start by capturing a new targeted dataset using the Data Acquisition module. Merge this dataset with the existing one by running `main.py` in the `alignment` folder to compute the transformation. Apply the obtained transformation to all poses in the new scan. Next, use `merge_data.py` to combine the two datasets. The merged dataset can then be processed by the segmentation and scene graph module to generate an updated scene graph incorporating the new scan's information.

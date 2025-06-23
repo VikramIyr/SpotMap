@@ -1,0 +1,28 @@
+{
+    "name": "RGB-D Dataset Captured By Boston Dynamics Spot",
+
+    "path_dataset": "/home/cvg-robotics/project9_ws/SpotMap/data/data_o3d",
+    "path_intrinsic": "/home/cvg-robotics/project9_ws/SpotMap/data/data_o3d/camera_intrinsic.json",
+    
+    "n_frames_per_fragment": 100,
+    "n_keyframes_per_n_frame": 5,
+    "depth_max": 3.0,
+    "voxel_size": 0.025,
+    "depth_diff_max": 0.04,
+    "preference_loop_closure_odometry": 0.1,
+    "preference_loop_closure_registration": 5.0,
+    "tsdf_cubic_size": 4.0,
+    "icp_method": "point_to_plane",
+    "global_registration": "fgr",
+    "python_multi_threading": true,
+    
+    "note": "`slac` and `slac_integrate` related parameters.",
+    "max_iterations": 20,
+    "sdf_trunc": 0.04,
+    "block_count": 40000,
+    "distance_threshold": 0.05,
+    "fitness_threshold": 0.3,
+    "regularizer_weight": 1,
+    "method": "slac",
+    "device": "cuda:0"
+}

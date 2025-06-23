@@ -52,7 +52,7 @@ def encoding_to_dtype(
 def read_and_save_image_topic(
     topic: str, 
     rosbag_dir: Path, 
-    image_dir: Path,
+    save_dir: Path,
     max_iter: int = 10000, 
     dtype: np.dtype = None,
     extension: str = 'png', 

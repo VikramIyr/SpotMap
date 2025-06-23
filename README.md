@@ -18,51 +18,20 @@
 ## 📂 Repository Structure
 
 ```plaintext
-SpotMAP/
-├── src/          # Source code: models, datasets, pipeline 
-├── configs/      # Configuration files 
-├── scripts/      # Shell scripts 
-├── data/         
-├── docs/         # Additional documentation and figures
+SpotMap/
+├── src/          # Core source code: modules of the pipeline
+├── configs/      # Configuration files for SLAM and OpenMask3D
+├── data/         # Original and intermediate datasets
+├── scene_graph/  # Current scene graph representation
+├── docs/         # Documentation, figures, and additional resources
 ```
 ### 📂 Source code
 ```plaintext
 src/
 ├── data_acquisition/                
-│   │
-│   ├── main.py                      
-│   ├── image_processing.py          
-│   ├── rosbag_processing.py         
-│   └── README.md                    
-│
 ├── mapping_and_reconstruction/
-│   │   
-│   ├── slam.py                      # SLAM wrappers 
-│   ├── tsdf_fusion.py               # TSDF volume integration
-│   ├── denoising.py                 # 3-stage outlier removal & c
-│   ├── mesh_generation.py           # mesh/point-cloud export F
-│   ├── pose_alignment.py            # optional: refine poses,    
-│   │
-├── README.md                    
-│   └── utils/                       
-│       │
-        ├── config.py                # load/validate YAML configs
-│       ├── io_utils.py              # file I/O, saving/loading v
-│       ├── viz_utils.py             # debug plots, intermediate v
-│       └── logger.py                # centralized logging setup
-│
-└── segmentation_and_scene_graph/    
-    │
-    ├── main.py                      # entry point: from cloud → 
-    ├── segmentation.py              # load masks, run CLIP or net
-    ├── graph_builder.py             # node & edge extraction logic
-    ├── visualization.py             # plot graphs on 3D scene
-    ├── metrics.py                   # evaluation (IoU, graph acc
-    ├── README.md                    
-    └── utils/                       
-        │    
-        ├── config.py                # load segmentation parameters
-        └── data_utils.py            # helper to parse point-c 
+├── segmentation_and_scene_graph/   
+└── re_scan/    
 ```
 ---
 
@@ -79,9 +48,9 @@ Each of the core modules in `src/` has its own README with all the installation,
 - **Segmentation & Scene Graph**  
   See [`src/segmentation_and_scene_graph/README.md`](src/segmentation_and_scene_graph/README.md) for how to perform semantic segmentation, build the scene graph, and visualize the results.
 
+  ### 📂 Dataset
 
-
-
+  A sample dataset captured by Spot is already available at [`src/data_acquisition/ros2/rgbd_dataset`](src/data_acquisition/ros2/rgbd_dataset). This dataset can be used to test and validate the pipeline components.
 
 
 ## 📄 Citation

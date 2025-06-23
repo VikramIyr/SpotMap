@@ -4,7 +4,7 @@ import shutil
 from pathlib import Path
 
 
-def subsample_dataset(dataset_dir, output_dir, mod_factor):
+def downsample_dataset(dataset_dir, output_dir, mod_factor):
     """
     Subsamples an RGB-D dataset by copying every N-th frame from the input directories to new output directories.
 
@@ -15,7 +15,7 @@ def subsample_dataset(dataset_dir, output_dir, mod_factor):
     """
     color_dir = Path(dataset_dir) / "image"
     depth_dir = Path(dataset_dir) / "depth"
-    pose_dir  = Path(dataset_dir) / "pose_z_up"
+    pose_dir  = Path(dataset_dir) / "pose"
 
     out_color = Path(output_dir) / "image"
     out_depth = Path(output_dir) / "depth"
@@ -52,8 +52,8 @@ def subsample_dataset(dataset_dir, output_dir, mod_factor):
 
 if __name__ == "__main__":
     # Example paths - update these as needed
-    root = Path(__file__).parent.parent
+    root = Path(__file__).parent.parent.parent.parent
     dataset_dir = root / "data" / "data_o3d"
-    output_dir = root / "data" / "data_om3"
-    mod_factor = 5
-    subsample_dataset(dataset_dir, output_dir, mod_factor)
+    output_dir = root / "data" / "data_o3d_ds"
+    mod_factor = 3
+    downsample_dataset(dataset_dir, output_dir, mod_factor)

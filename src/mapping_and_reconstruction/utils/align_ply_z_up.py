@@ -1,77 +1,113 @@
-import os
 import open3d as o3d
 import numpy as np
-
 from pathlib import Path
+from scipy.spatial import ConvexHull
 
+def load_point_cloud(file_path):
+    return o3d.io.read_point_cloud(file_path)
 
-def align_pointcloud_z_up_and_transform_poses(input_ply_path: Path,
-                                              pose_dir: Path,
-                                              output_pose_dir: Path,
-                                              matrix_out_path: Path):
-    """
-    Aligns the input point cloud so the dominant plane normal aligns with -Z axis.
-    Transforms all camera poses accordingly and saves the transformation matrix.
+def detect_floor_plane(pcd):
+    plane_model, inliers = pcd.segment_plane(0.02, 3, 1000)
+    return plane_model, pcd.select_by_index(inliers)
 
-    Args:
-        input_ply_path (Path): Path to the input .ply file.
-        pose_dir (Path): Folder containing 4x4 pose text files.
-        output_pose_dir (Path): Folder to write transformed pose files.
-        matrix_out_path (Path): Path to save the 4x4 transformation matrix as .txt.
-    """
-    def is_valid_transform(T):
-        if not np.allclose(T[3], [0, 0, 0, 1]):
-            return False
-        R = T[:3, :3]
-        return (np.allclose(R @ R.T, np.eye(3), atol=1e-4) and
-                np.isclose(abs(np.linalg.det(R)), 1.0, atol=1e-4))
-
-    pcd = o3d.io.read_point_cloud(str(input_ply_path))
-    print(f"Loaded point cloud with {len(pcd.points)} points")
-
-    # Step 1: Detect floor plane
-    plane_model, inliers = pcd.segment_plane(distance_threshold=0.02, ransac_n=3, num_iterations=2000)
+def align_normal_to_negative_y(plane_model):
     normal = np.array(plane_model[:3])
     normal /= np.linalg.norm(normal)
-
-    # Step 2: Compute rotation matrix
-    target = np.array([0, 0, -1])
-    cross = np.cross(normal, target)
+    target = np.array([0, -1, 0])
     dot = np.dot(normal, target)
-    if np.linalg.norm(cross) < 1e-6:
-        R_align = np.eye(3) if dot > 0 else -np.eye(3)
+
+    if np.abs(dot) > 0.999999:
+        R = np.eye(3) if dot > 0 else np.diag([-1, -1, 1])
     else:
-        skew = np.array([[0, -cross[2], cross[1]],
-                         [cross[2], 0, -cross[0]],
-                         [-cross[1], cross[0], 0]])
+        axis = np.cross(normal, target)
+        axis /= np.linalg.norm(axis)
         angle = np.arccos(np.clip(dot, -1.0, 1.0))
-        R_align = np.eye(3) + np.sin(angle) * skew + (1 - np.cos(angle)) * (skew @ skew)
+        K = np.array([[0, -axis[2], axis[1]],
+                      [axis[2], 0, -axis[0]],
+                      [-axis[1], axis[0], 0]])
+        R = np.eye(3) + np.sin(angle) * K + (1 - np.cos(angle)) * K @ K
 
-    T_align = np.eye(4)
-    T_align[:3, :3] = R_align
+    T = np.eye(4)
+    T[:3, :3] = R
+    return T
 
-    if not is_valid_transform(T_align):
-        raise ValueError("Generated alignment transformation is invalid.")
+def align_rectangle_with_axes(pcd):
+    _, inliers = detect_floor_plane(pcd)
+    pts = np.asarray(inliers.points)[:, [0, 2]]
 
-    np.savetxt(matrix_out_path, T_align, fmt="%.6f")
-    print(f"Saved alignment transformation matrix to: {matrix_out_path}")
+    hull = ConvexHull(pts)
+    best_angle, best_R = None, None
+    min_area = np.inf
 
-    # Step 3: Apply to all poses
-    output_pose_dir.mkdir(parents=True, exist_ok=True)
-    for file in sorted(pose_dir.glob("*.txt")):
-        if file.stem.isdigit():
-            pose = np.loadtxt(file).reshape(4, 4)
-            pose_transformed = T_align @ pose
-            out_path = output_pose_dir / file.name
-            np.savetxt(out_path, pose_transformed, fmt="%.12f")
-    print(f"Transformed poses saved to: {output_pose_dir}")
+    for angle in np.linspace(0, np.pi/2, 180):
+        R = np.array([[np.cos(angle), -np.sin(angle)],
+                      [np.sin(angle),  np.cos(angle)]])
+        rotated = pts[hull.vertices] @ R.T
+        w, h = np.ptp(rotated, axis=0)
+        area = w * h
+        if area < min_area:
+            min_area = area
+            best_angle = angle
+            best_R = R
 
+    align_angle = -best_angle if abs(best_angle) < abs(best_angle - np.pi/2) else -(best_angle - np.pi/2)
+    Ry = np.array([[np.cos(align_angle), 0, np.sin(align_angle)],
+                   [0, 1, 0],
+                   [-np.sin(align_angle), 0, np.cos(align_angle)]])
+    T = np.eye(4)
+    T[:3, :3] = Ry
+    return T
+
+def rotate_y_to_z():
+    Rx = np.eye(4)
+    Rx[1:3, 1:3] = [[0, -1], [1, 0]]
+    return Rx
+
+def rotate_180_z():
+    Rz = np.eye(4)
+    Rz[:2, :2] = [[-1, 0], [0, -1]]
+    return Rz
+
+def load_pose(path: Path) -> np.ndarray:
+    return np.loadtxt(path).reshape(4, 4)
+
+def save_pose(path: Path, pose: np.ndarray):
+    np.savetxt(path, pose, fmt="%.6f")
+
+def main():
+    root_dir = Path(__file__).parent.parent.parent.parent
+    tsdf_path = root_dir / "data" / "data_o3d_ds" / "tsdf.ply"
+    poses_dir = root_dir / "data" / "data_o3d_ds" / "pose"
+    out_dir = root_dir / "data" / "data_o3d_ds" / "pose_z_up"
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    # Step 1: Align scene and compute transformation
+    pcd = load_point_cloud(str(tsdf_path))
+    plane_model, _ = detect_floor_plane(pcd)
+    T1 = align_normal_to_negative_y(plane_model)
+    pcd.transform(T1)
+
+    T2 = align_rectangle_with_axes(pcd)
+    pcd.transform(T2)
+
+    T3 = rotate_y_to_z()
+    pcd.transform(T3)
+
+    T4 = rotate_180_z()
+    pcd.transform(T4)
+
+    # Total transformation: T = T4 @ T3 @ T2 @ T1
+    T_total = T4 @ T3 @ T2 @ T1
+
+    # Step 2: Apply to poses
+    pose_files = sorted(poses_dir.glob("*.txt"))
+    for pose_path in pose_files:
+        pose = load_pose(pose_path)
+        transformed = T_total @ pose
+        out_path = out_dir / pose_path.name
+        save_pose(out_path, transformed)
+
+    print(f"Transformed {len(pose_files)} poses → {out_dir}")
 
 if __name__ == "__main__":
-    root = Path(__file__).parent.parent
-    input_ply = root / "data" / "data_o3d" / "scene.ply"
-    pose_input = root / "data" / "data_o3d" / "pose"
-    pose_output = root / "data" / "data_o3d" / "pose_z_up"
-    matrix_out = root / "data" / "reconstruction" / "alignment_matrix.txt"
-
-    align_pointcloud_z_up_and_transform_poses(input_ply, pose_input, pose_output, matrix_out)
+    main()

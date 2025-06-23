@@ -31,10 +31,10 @@ from rosbag_processing import (
 )
 
 def main():
-    ROOT_DIR = Path(__file__).parent.parent
-    ROSBAG_DIR = ROOT_DIR / 'data_acquisition'/ 'ros2' / 'rgbd_dataset'
+    ROOT_DIR = Path(__file__).parent.parent.parent
+    ROSBAG_DIR = ROOT_DIR / 'src' / 'data_acquisition'/ 'ros2' / 'rgbd_dataset'
     DATASET_DIR = ROOT_DIR / 'data' / 'data_extracted'
-    COLOR_DIR = DATASET_DIR / 'color'
+    COLOR_DIR = DATASET_DIR / 'image'
     DEPTH_DIR = DATASET_DIR / 'depth'
     DEPTH_PROCESSED_DIR = DATASET_DIR / 'depth_processed'
 
@@ -74,7 +74,7 @@ def main():
         save_dir=DEPTH_DIR
     )
 
-    print("\nPreprocessing registered depth images...")
+    print("Processing raw depth images...")
     n_frames = count_color_frames(COLOR_DIR)
     cuda_available = torch.cuda.is_available()
 
