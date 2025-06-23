@@ -184,3 +184,17 @@ footer a {
 .member-info .social-link:hover {
   text-decoration: underline;
 }
+
+/* LinkedIn icon sizing & alignment */
+.social-icon {
+  width: 20px;
+  height: auto;
+  vertical-align: middle;
+  margin-left: 0.4rem;
+}
+
+/* Optional: remove default link underline */
+.social-link {
+  display: inline-block;
+  line-height: 1;
+}
