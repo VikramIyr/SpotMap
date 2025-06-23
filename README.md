@@ -1,15 +1,19 @@
 <h1 align="center">
-  <img src="docs/images/spotmap_logo.png" alt="SpotMap Logo" width="200" /><br>
-  SpotMap
+  <img src="docs/images/spotmap_logo.png" alt="SpotMAP Logo" width="200" /><br>
+  SpotMAP
 </h1>
 
+<p align="center">
+  <strong>Kerem Kılıç<sup>1</sup> · Vikram Iyer<sup>1</sup> · Roham Zendehdel Nobari<sup>1</sup> · Yagiz Devre<sup>2</sup></strong><br>
+  <em><small>1 ETH Zürich &nbsp;|&nbsp; 2 Princeton</small></em>
+</p>
 
 ---
-<br>
 
 **SpotMAP** is a complete end-to-end pipeline for robotic scene understanding and interactive mapping. It integrates on-board SLAM, volumetric 3D reconstruction, instance segmentation, dynamic scene graph generation, and affordance prediction — giving mobile robots the capability to build detailed maps and understand their surroundings with minimal human supervision.
 
 ---
+
 
 ## 📂 Repository Structure
 
