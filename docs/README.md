@@ -8,7 +8,7 @@
 </h2>
 
 <p align="center">
-  <strong>Vikram Iyer<sup>1</sup>, Yagiz Devre<sup>2</sup>, Roham Zendehdel Nobari<sup>1</sup>, Kerem Kılıç<sup>1</sup></strong><br>
+  <strong>Kerem Kılıç<sup>1</sup>, Vikram Iyer<sup>1</sup>, Roham Zendehdel Nobari<sup>1</sup>, Yagiz Devre<sup>2</sup> </strong><br>
   <em>ETH Zürich<sup>1</sup>, Princeton<sup>2</sup></em>
 </p>
 
