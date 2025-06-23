@@ -28,30 +28,58 @@ SpotMAP/
 ### 📂 Source code
 ```plaintext
 src/
-├── /           
-├── /       
-├── /      
-├── /         
-├── /         
+├── data_acquisition/                
+│   │
+│   ├── main.py                      
+│   ├── image_processing.py          
+│   ├── rosbag_processing.py         
+│   └── README.md                    
+│
+├── mapping_and_reconstruction/
+│   │   
+│   ├── slam.py                      # SLAM wrappers 
+│   ├── tsdf_fusion.py               # TSDF volume integration
+│   ├── denoising.py                 # 3-stage outlier removal & c
+│   ├── mesh_generation.py           # mesh/point-cloud export F
+│   ├── pose_alignment.py            # optional: refine poses,    
+│   │
+├── README.md                    
+│   └── utils/                       
+│       │
+        ├── config.py                # load/validate YAML configs
+│       ├── io_utils.py              # file I/O, saving/loading v
+│       ├── viz_utils.py             # debug plots, intermediate v
+│       └── logger.py                # centralized logging setup
+│
+└── segmentation_and_scene_graph/    
+    │
+    ├── main.py                      # entry point: from cloud → 
+    ├── segmentation.py              # load masks, run CLIP or net
+    ├── graph_builder.py             # node & edge extraction logic
+    ├── visualization.py             # plot graphs on 3D scene
+    ├── metrics.py                   # evaluation (IoU, graph acc
+    ├── README.md                    
+    └── utils/                       
+        │    
+        ├── config.py                # load segmentation parameters
+        └── data_utils.py            # helper to parse point-c 
 ```
 ---
 
 ## 🚀 Setup
 
+Each of the core modules in `src/` has its own README with all the installation, configuration, and usage instructions:
 
-### OpenMask3d Docker
+- **Data Acquisition**  
+  See [`src/data_acquisition/README.md`](src/data_acquisition/README.md) for how to extract and preprocess raw RGB-D frames and ROS bag files.
 
-SpotMAP relies on the OpenMask3D Docker container to ensure a consistent and reproducible runtime environment.
+- **Mapping & Reconstruction**  
+  See [`src/mapping_and_reconstruction/README.md`](src/mapping_and_reconstruction/README.md) for how to configure and run SLAM, TSDF fusion, denoising, and mesh/point-cloud export.
 
-#### 1️⃣ Pull the image and run the container
-```bash
-docker pull craiden/openmask:v1.0
-docker run -p 5001:5001 --gpus all -it craiden/openmask:v1.0
-```
+- **Segmentation & Scene Graph**  
+  See [`src/segmentation_and_scene_graph/README.md`](src/segmentation_and_scene_graph/README.md) for how to perform semantic segmentation, build the scene graph, and visualize the results.
 
-#### 2️⃣ Follow the next steps
 
-For detailed instructions on how to prepare your data, configure the container, and run OpenMask3D, please refer to the [OpenMask3D repository](https://github.com/OpenMask3D/openmask3d) and its setup guide.
 
 
 
@@ -60,16 +88,16 @@ For detailed instructions on how to prepare your data, configure the container, 
 
 If you find this work useful, please cite our paper:
 
+
 ```bibtex
-@inproceedings{YOUR_BIBTEX_KEY,
-  title     = {$PAPER_TITLE},
-  author    = {First Author and Second Author and Third Author},
-  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year      = {$CVPR_YEAR}
-}
+WORK IN PROGRESS
 ```
 
 ---
+## ⭐ Support
+
+If you find SpotMAP helpful, please ⭐ star our GitHub repository to support the project!
+
 
 ## 📧 Contact
 
