@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpotMAP: Robotic Scene Understanding</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="images/spotmap_logo.png" alt="SpotMAP Logo" class="logo">
+    </div>
+    <h1>Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs</h1>
+    <p class="authors">
+      <strong>Kerem Kılıç<sup>1</sup>, Vikram Iyer<sup>1</sup>, Roham Zendehdel Nobari<sup>1</sup>, Yagiz Devre<sup>2</sup></strong><br>
+      <em>ETH Zürich<sup>1</sup>, Princeton<sup>2</sup></em>
+    </p>
+    <div class="badges">
+      <a href="https://arxiv.org/abs/2506.12345" class="badge arxiv">Paper</a>
+      <a href="https://github.com/your_repo_link" class="badge github">Code</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="overview">
+      <h2>Overview</h2>
+      <ul>
+        <li>Time-synchronized data extraction</li>
+        <li>Robust Open3D <strong>SLAM</strong></li>
+        <li>High-fidelity <strong>3D reconstruction</strong></li>
+        <li>Precise <strong>instance segmentation</strong></li>
+        <li>Dynamic scene graph generation</li>
+      </ul>
+      <div class="pipeline">
+        <img src="images/pipeline_overview.png" alt="SpotMAP Pipeline">
+        <p class="caption">Figure: Overview of the SpotMAP pipeline modules.</p>
+      </div>
+    </section>
+
+    <section id="demos">
+      <h2>Featured Demos</h2>
+      <div class="demo">
+        <h3>Live Volumetric Fusion</h3>
+        <iframe src="https://www.youtube.com/embed/ETMJrnWWVg8" allowfullscreen></iframe>
+      </div>
+      <div class="demo">
+        <h3>Point Cloud after Denoising</h3>
+        <img src="images/interaction_demo.gif" alt="Interaction Demo">
+      </div>
+    </section>
+
+    <section id="dataset">
+      <h2>Dataset</h2>
+      <p>SpotMAP operates on RGB-D sequences recorded with the Boston Dynamics Spot robot. Each sequence provides:</p>
+      <ul>
+        <li><strong>RGB images</strong></li>
+        <li><strong>Depth maps</strong></li>
+        <li><strong>Camera poses</strong></li>
+      </ul>
+    </section>
+
+    <section id="citation">
+      <h2>Citation</h2>
+      <pre><code class="bibtex">
+@misc{iyer2025spotmap,
+  title        = {SpotMAP: Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs},
+  author       = {Vikram Iyer and Yagiz Devre and Roham Zendehdel Nobari and Kerem Kılıç},
+  year         = {2025},
+  eprint       = {arXiv:2506.12345},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.RO},
+  url          = {https://arxiv.org/abs/2506.12345}
+}
+      </code></pre>
+    </section>
+
+    <section id="built-with">
+      <h2>Built With</h2>
+      <div class="tools">
+        <img src="images/open3d_logo.png" alt="Open3D">
+        <img src="images/spotlight_logo.png" alt="SpotLight">
+        <img src="images/openmask3d_logo.png" alt="OpenMask3D">
+        <img src="images/spot_compose_logo.png" alt="SpotCompose">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Questions or issues? Open an <a href="https://github.com/your_repo_link/issues">issue</a> or email <a href="mailto:vikram.iyer@ethz.ch">vikram.iyer@ethz.ch</a>.</p>
+    <p>&copy; 2025 SpotMAP Project | <a href="LICENSE">MIT License</a></p>
+  </footer>
+</body>
+</html>
