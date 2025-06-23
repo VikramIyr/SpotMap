@@ -2,13 +2,12 @@
   <img src="images/spotmap_logo.png" alt="SpotMAP Logo" width="200" />
 </p>
 
-
 <h2 align="center">
   Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs
 </h2>
 
 <p align="center">
-  <strong>Kerem Kılıç<sup>1</sup>, Vikram Iyer<sup>1</sup>, Roham Zendehdel Nobari<sup>1</sup>, Yagiz Devre<sup>2</sup> </strong><br>
+  <strong>Kerem Kılıç<sup>1</sup>, Vikram Iyer<sup>1</sup>, Roham Zendehdel Nobari<sup>1</sup>, Yagiz Devre<sup>2</sup></strong><br>
   <em>ETH Zürich<sup>1</sup>, Princeton<sup>2</sup></em>
 </p>
 
@@ -27,12 +26,11 @@
 
 **SpotMAP** is an end-to-end framework for autonomous robotic scene understanding. It integrates:
 
-- Time-synchronized data extraction
-- Robust on-board **SLAM**
-- High-fidelity **3D reconstruction**
-- Precise **instance segmentation**
-- **Dynamic scene graph generation** for structured semantic mapping
-- Basic **affordance estimation** to support interaction planning
+- Time-synchronized data extraction  
+- Robust Open3D **SLAM**  
+- High-fidelity **3D reconstruction**  
+- Precise **instance segmentation**  
+- **Dynamic scene graph** generation for structured semantic mapping  
 
 <p align="center">
   <img src="images/pipeline_overview.png" alt="SpotMAP Pipeline" width="800"/>
@@ -69,29 +67,29 @@
 
 SpotMAP operates on RGB-D sequences recorded with the Boston Dynamics Spot robot, featuring:
 
-- Diverse indoor environments
-- Varying lighting conditions and occlusions
-- Fine-grained object instance masks
+- Diverse indoor environments  
+- Varying lighting conditions and occlusions  
+- Fine-grained object instance masks  
 
 Each sequence provides:
 
-- **RGB images**
-- **Depth maps**
-- **Camera poses**
+- **RGB images**  
+- **Depth maps**  
+- **Camera poses**  
 
 ---
 
 ## 📄 Citation
 
-If you find **SpotMAP** helpful in your work, please cite:
+If you use **SpotMAP** in your work, please cite:
 
 ```bibtex
 @misc{iyer2025spotmap,
-  title = {SpotMAP: Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs},
-  author = {Vikram Iyer and Yagiz Devre and Roham Zendehdel Nobari and Kerem Kılıç},
-  year = {2025},
-  eprint = {arXiv:2506.12345},
-  archivePrefix = {arXiv},
+  title        = {SpotMAP: Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs},
+  author       = {Vikram Iyer and Yagiz Devre and Roham Zendehdel Nobari and Kerem Kılıç},
+  year         = {2025},
+  eprint       = {arXiv:2506.12345},
+  archivePrefix= {arXiv},
   primaryClass = {cs.RO},
-  url = {https://arxiv.org/abs/2506.12345}
+  url          = {https://arxiv.org/abs/2506.12345}
 }
