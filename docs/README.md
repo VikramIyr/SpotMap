@@ -1,3 +1,5 @@
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
 <p align="center">
   <img src="images/spotmap_logo.png" alt="SpotMAP Logo" width="200" />
 </p>
@@ -42,6 +44,7 @@
 
 ## 🎥 Featured Demos
 
+- **Live Volumetric Fusion**  
 <p align="center">
   <iframe width="800" height="450"
           src="https://www.youtube.com/embed/ETMJrnWWVg8"
@@ -51,12 +54,8 @@
   </iframe>
 </p>
 
-- **Scene Mapping & Segmentation**  
-  <p align="center">
-    <img src="images/mapping_demo.gif" alt="Mapping Demo" width="600"/>
-  </p>
 
-- **Interactive Updates**  
+- **Point Cloud after denoising**  
   <p align="center">
     <img src="images/interaction_demo.gif" alt="Interaction Demo" width="600"/>
   </p>
@@ -65,11 +64,7 @@
 
 ## 🗂️ Dataset
 
-SpotMAP operates on RGB-D sequences recorded with the Boston Dynamics Spot robot, featuring:
-
-- Diverse indoor environments  
-- Varying lighting conditions and occlusions  
-- Fine-grained object instance masks  
+SpotMAP operates on RGB-D sequences recorded with the Boston Dynamics Spot robot,
 
 Each sequence provides:
 
@@ -93,3 +88,11 @@ If you use **SpotMAP** in your work, please cite:
   primaryClass = {cs.RO},
   url          = {https://arxiv.org/abs/2506.12345}
 }
+```
+## 🔧 Built With
+
+<p align="center">
+  <img src="images/open3d_logo.png" alt="Open3D" width="100" style="margin:0 20px;" />
+  <img src="images/spotlight_logo.png" alt="SpotLight" width="100" style="margin:0 20px;" />
+  <img src="images/openmask3d_logo.png" alt="OpenMask3D" width="100" style="margin:0 20px;" />
+</p>
