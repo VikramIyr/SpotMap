@@ -1,8 +1,8 @@
+<h1 align="center">
+  <img src="docs/images/spotmap_logo.png" alt="SpotMap Logo" width="200" /><br>
+  SpotMap
+</h1>
 
-<p align="center">
-  <img src="docs/images/spotmap_logo.png" alt="SpotMap Logo" width="200" style="vertical-align: middle; margin-right: 1px;" />
-  <span style="font-size: 2cm; font-weight: bold; vertical-align: middle;">SpotMap</span>
-</p>
 
 ---
 <br>
