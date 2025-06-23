@@ -1,11 +1,11 @@
 <h1 align="center">
-  <img src="docs/images/spotmap_logo.png" alt="SpotMap Logo" width="200" /><br>
+  <img src="docs/images/spotmap_logo.png" alt="SpotMap Logo" width="300" /><br>
   SpotMap
 </h1>
 
 <p align="center">
-  <strong>Kerem Kılıç<sup>1</sup> · Vikram Iyer<sup>1</sup> · Roham Zendehdel Nobari<sup>1</sup> · Yagiz Devre<sup>2</sup></strong><br>
-  <em><small>1 ETH Zürich &nbsp;|&nbsp; 2 Princeton</small></em>
+  <strong>Kerem Kılıç<sup>1</sup>, Vikram Iyer<sup>1</sup>, Roham Zendehdel Nobari<sup>1</sup>, Yagiz Devre<sup>2</sup></strong><br>
+  <em><small><sup>1</sup>ETH Zürich,&nbsp;,&nbsp;<sup>2</sup>Princeton</small></em>
 </p>
 
 ---
