@@ -1,92 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=2.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SpotMAP: Robotic Scene Understanding</title>
+  <meta name="description" content="SpotMAP: Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs" />
+  <meta name="author" content="SpotMAP Team" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
-  <!-- External CSS -->
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Three.js and Loaders -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/PLYLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+  
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <div class="logo-container">
-      <img src="images/spotmap_logo.png" alt="SpotMAP Logo" class="logo">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-bg"></div>
+    <div class="header-content">
+      <div class="logo-container fade-in">
+        <img src="images/spotmap_logo.png" alt="SpotMAP Logo" class="logo">
+      </div>
+      
+      <h1 class="main-title fade-in delay-200">
+        Robotic Scene Understanding through 
+        <span class="gradient-text">Reconstruction</span> and 
+        <span class="gradient-text-purple">Dynamic Scene Graphs</span>
+      </h1>
+      
+      <div class="authors fade-in delay-400">
+        <p class="author-names">
+          <strong>Kerem Kılıç¹, Vikram Iyer¹, Roham Zendehdel Nobari¹, Yagiz Devre²</strong>
+        </p>
+        <p class="affiliations">
+          <em>ETH Zürich¹, Princeton²</em>
+        </p>
+      </div>
+      
+      <div class="action-buttons fade-in delay-600">
+        <a href="https://arxiv.org/abs/2506.12345" target="_blank" class="btn btn-red">
+          <span class="btn-icon">📄</span>
+          Paper on arXiv
+        </a>
+        <a href="https://github.com/VikramIyr/SpotMap" target="_blank" class="btn btn-outline">
+          <span class="btn-icon">📁</span>
+          Github Repository
+        </a>
+        <a href="contact.html" class="btn btn-blue">
+          <span class="btn-icon">✉️</span>
+          Contact Us
+        </a>
+      </div>
     </div>
-    <h1>Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs</h1>
-    <p class="authors">
-      <strong>Kerem Kılıç<sup>1</sup>, Vikram Iyer<sup>1</sup>, Roham Zendehdel Nobari<sup>1</sup>, Yagiz Devre<sup>2</sup></strong><br>
-      <em>ETH Zürich<sup>1</sup>, Princeton<sup>2</sup></em>
-    </p>
-   <div class="badges">
-  <a href="https://arxiv.org/abs/2506.12345">
-    <img
-      src="https://img.shields.io/badge/Paper-arXiv-red?style=for-the-badge&logo=arxiv"
-      alt="Paper on arXiv"
-    />
-  </a>
-  <a href="https://github.com/VikramIyr/SpotMap">
-    <img
-      src="https://img.shields.io/badge/Code-GitHub-black?style=for-the-badge&logo=github"
-      alt="Code on GitHub"
-    />
-  </a>
-  <a href="contact.html">
-    <img
-      src="https://img.shields.io/badge/Contact-Us-blue?style=for-the-badge&logo=maildotru"
-      alt="Contact Us"
-    />
-  </a>
-</div>
-
-
   </header>
 
-  <main>
-    <section id="overview">
-      <h2>Overview</h2>
-      <ul>
-        <li>Time-synchronized data extraction</li>
-        <li>Robust Open3D <strong>SLAM</strong></li>
-        <li>High-fidelity <strong>3D reconstruction</strong></li>
-        <li>Precise <strong>instance segmentation</strong></li>
-        <li>Dynamic scene graph generation</li>
-      </ul>
-      <div class="pipeline">
-        <img src="images/pipeline_overview.png" alt="SpotMAP Pipeline">
-        <p class="caption">Figure: Overview of the SpotMAP pipeline modules.</p>
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Overview Section -->
+    <section class="section fade-in delay-800">
+      <div class="section-header">
+        <h2>System Overview</h2>
+        <p class="section-subtitle">
+          SpotMAP combines advanced computer vision techniques with robotic sensing to create comprehensive scene understanding
+        </p>
+      </div>
+      
+      <div class="overview-grid">
+        <div class="overview-text">
+          <ul class="feature-list">
+            <li>Time-synchronized data extraction</li>
+            <li>Robust Open3D SLAM</li>
+            <li>High-fidelity 3D reconstruction</li>
+            <li>Precise instance segmentation</li>
+            <li>Dynamic scene graph generation</li>
+          </ul>
+        </div>
+        
+        <div class="overview-image">
+          <div class="image-card">
+            <img src="images/pipeline_overview.png" alt="SpotMAP Pipeline Overview" class="pipeline-img">
+            <div class="image-caption">
+              <p>Figure: Overview of the SpotMAP pipeline modules</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="demos">
-      <h2>Featured Demos</h2>
-      <div class="demo">
-        <h3>Live Volumetric Fusion</h3>
-        <iframe src="https://www.youtube.com/embed/ETMJrnWWVg8" allowfullscreen></iframe>
+    <!-- 3D Viewer Section -->
+    <section class="section fade-in delay-900">
+      <div class="section-header">
+        <h2>Interactive 3D Visualization</h2>
+        <p class="section-subtitle">
+          Load and explore your own .ply and .obj files or view our demo scenes
+        </p>
       </div>
-      <div class="demo">
-        <h3>Point Cloud after Denoising</h3>
-        <iframe src="https://www.youtube.com/embed/un2XTGWSqkM" allowfullscreen></iframe>
+      
+      <div class="viewer-container">
+        <div id="three-viewer" class="three-viewer"></div>
+        <div class="viewer-controls">
+          <div class="control-group">
+            <label>Scene:</label>
+            <select id="scene-selector">
+              <option value="pointcloud">Demo Point Cloud</option>
+              <option value="reconstruction">Demo 3D Reconstruction</option>
+              <option value="robot">Demo Robot Model</option>
+              <option value="custom">Load Custom File</option>
+            </select>
+          </div>
+          <div class="control-group file-upload-group" id="file-upload-group" style="display: none;">
+            <input type="file" id="file-input" accept=".ply,.obj" class="file-input">
+            <label for="file-input" class="file-input-label">Choose File (.ply, .obj)</label>
+          </div>
+          <div class="control-group">
+            <label>Visualization:</label>
+            <button id="toggle-wireframe" class="control-btn">Toggle Wireframe</button>
+            <button id="reset-camera" class="control-btn">Reset View</button>
+          </div>
+        </div>
+        <div class="viewer-info">
+          <p><strong>Controls:</strong> Click and drag to rotate • Scroll to zoom • Right-click and drag to pan</p>
+          <p><strong>Supported formats:</strong> .ply (point clouds), .obj (3D models)</p>
+        </div>
+      </div>
+      <div id="loading-indicator" class="loading-indicator" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading 3D model...</p>
       </div>
     </section>
 
-    <section id="dataset">
-      <h2>Dataset</h2>
-      <p>SpotMAP operates on RGB-D sequences recorded with the Boston Dynamics Spot robot. Each sequence provides:</p>
-      <ul>
-        <li><strong>RGB images</strong></li>
-        <li><strong>Depth maps</strong></li>
-        <li><strong>Camera poses</strong></li>
-      </ul>
+    <!-- Demos Section -->
+    <section class="section fade-in delay-1000">
+      <div class="section-header">
+        <h2>Featured Demos</h2>
+        <p class="section-subtitle">See SpotMAP in action</p>
+      </div>
+      
+      <div class="demos-grid">
+        <div class="demo-card">
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/ETMJrnWWVg8" 
+              allowfullscreen
+              title="Live Volumetric Fusion">
+            </iframe>
+          </div>
+          <div class="demo-info">
+            <h3>Live Volumetric Fusion</h3>
+            <p>Real-time 3D reconstruction and mapping</p>
+          </div>
+        </div>
+        
+        <div class="demo-card">
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/un2XTGWSqkM" 
+              allowfullscreen
+              title="Point Cloud after Denoising">
+            </iframe>
+          </div>
+          <div class="demo-info">
+            <h3>Point Cloud after Denoising</h3>
+            <p>High-quality 3D point cloud processing</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="citation">
-      <h2>Citation</h2>
-      <pre><code class="bibtex">
-@misc{iyer2025spotmap,
+    <!-- Dataset Section -->
+    <section class="section fade-in delay-1200">
+      <div class="card">
+        <h2>Dataset</h2>
+        <p class="dataset-desc">
+          SpotMAP operates on RGB-D sequences recorded with the Boston Dynamics Spot robot. Each sequence provides:
+        </p>
+        <div class="dataset-features">
+          <div class="dataset-feature">
+            <h3>RGB Images</h3>
+            <p>High-resolution color imagery</p>
+          </div>
+          <div class="dataset-feature">
+            <h3>Depth Maps</h3>
+            <p>Precise distance measurements</p>
+          </div>
+          <div class="dataset-feature">
+            <h3>Camera Poses</h3>
+            <p>Accurate positioning data</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Citation Section -->
+    <section class="section fade-in delay-1400">
+      <div class="card">
+        <h2>Citation</h2>
+        <div class="citation-block">
+          <pre><code>@misc{iyer2025spotmap,
   title        = {SpotMAP: Robotic Scene Understanding through Reconstruction and Dynamic Scene Graphs},
   author       = {Vikram Iyer and Yagiz Devre and Roham Zendehdel Nobari and Kerem Kılıç},
   year         = {2025},
@@ -94,27 +210,41 @@
   archivePrefix= {arXiv},
   primaryClass = {cs.RO},
   url          = {https://arxiv.org/abs/2506.12345}
-}
-      </code></pre>
+}</code></pre>
+        </div>
+      </div>
     </section>
 
-    <section id="built-using">
-      <h2>Built With</h2>
-      <div class="tools">
-        <img src="images/open3d_logo.png" alt="Open3D">
-        <img src="images/spotlight_logo.png" alt="SpotLight">
-        <img src="images/openmask3d_logo.png" alt="OpenMask3D">
-        <img src="images/spot_compose_logo.png" alt="SpotCompose">
-        <img src="images/boston_dynamics_logo.png" alt="BostonDynamics">
-        <img src="images/cvg_logo.png" alt="CVG">
-
+    <!-- Built With Section -->
+    <section class="section fade-in delay-1600">
+      <div class="section-header">
+        <h2>Built With</h2>
+        <p class="section-subtitle">Powered by cutting-edge technologies</p>
+      </div>
+      
+      <div class="tools-grid">
+        <img src="images/open3d_logo.png" alt="Open3D Logo" class="tool-logo">
+        <img src="images/spotlight_logo.png" alt="SpotLight Logo" class="tool-logo">
+        <img src="images/openmask3d_logo.png" alt="OpenMask3D Logo" class="tool-logo">
+        <img src="images/spot_compose_logo.png" alt="SpotCompose Logo" class="tool-logo">
+        <img src="images/boston_dynamics_logo.png" alt="Boston Dynamics Logo" class="tool-logo">
+        <img src="images/cvg_logo.png" alt="CVG Logo" class="tool-logo">
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>Questions or issues? Open an <a href="https://github.com/VikramIyr/SpotMap/issues">issue</a>, and we will answer ASAP.</p>
-    <p>&copy; 2025 SpotMAP Project | <a href="LICENSE">MIT License</a></p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-text">
+        Questions or issues? Open an <a href="https://github.com/VikramIyr/SpotMap/issues" class="footer-link">issue</a>, and we will answer ASAP.
+      </p>
+      <p class="footer-copyright">
+        © 2025 SpotMAP Project | <a href="/license" class="footer-link">MIT License</a>
+      </p>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

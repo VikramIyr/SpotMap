@@ -1,115 +1,162 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact – SpotMAP</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <meta name="description" content="Get in touch with the SpotMAP team" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- Header -->
-  <header class="site-header">
-    <p align="center">
-      <img src="images/spotmap_logo.png" alt="SpotMAP Logo" width="200" />
-    </p>
-    <h2 align="center">
-      SpotMAP — Contact & Contributors
-    </h2>
+  <header class="header">
+    <div class="header-bg"></div>
+    <div class="header-content">
+      <div class="logo-container fade-in">
+        <img src="/placeholder.svg" alt="SpotMAP Logo" class="logo contact-logo">
+      </div>
+      <h1 class="main-title fade-in delay-200">
+        Contact & <span class="gradient-text">Contributors</span>
+      </h1>
+      <p class="section-subtitle fade-in delay-400">Get in touch with the SpotMAP team</p>
+    </div>
   </header>
 
-  <main class="section">
+  <main class="main-content">
+    <!-- Back Button -->
+    <div class="back-button-container fade-in delay-600">
+      <a href="index.html" class="btn btn-outline">
+        <span class="btn-icon">←</span>
+        Back to Home
+      </a>
+    </div>
+
     <!-- Team Section -->
-    <section id="team">
-      <h3>Authors & Maintainers</h3>
-      <div class="team-container">
+    <section class="section fade-in delay-800">
+      <div class="section-header">
+        <h2>Authors & Maintainers</h2>
+        <p class="section-subtitle">The brilliant minds behind SpotMAP</p>
+      </div>
+
+      <div class="team-grid">
         <div class="team-member">
-          <img src="images/contact/kerem.jpg" alt="Kerem Kılıç" />
+          <div class="member-image">
+            <img src="/placeholder.svg" alt="Kerem Kılıç">
+          </div>
           <div class="member-info">
-            <strong>Kerem Kılıç</strong><br/>
-            <a href="mailto:kkilic@ethz.ch">kkilic@ethz.ch</a>
-            <a href="https://www.linkedin.com/in/kerem-kilic/" target="_blank" class="social-link">
-              <img
-                src="https://cdn.simpleicons.org/linkedin/0077B5"
-                alt="LinkedIn"
-                class="social-icon"
-              />
-            </a>
+            <h3>Kerem Kılıç</h3>
+            <div class="member-contacts">
+              <a href="mailto:kkilic@ethz.ch" class="contact-link">
+                <span class="contact-icon">✉️</span>
+                <span>kkilic@ethz.ch</span>
+              </a>
+              <a href="https://www.linkedin.com/in/kerem-kilic/" target="_blank" class="contact-link">
+                <span class="contact-icon">🔗</span>
+                <span>LinkedIn</span>
+              </a>
+            </div>
           </div>
         </div>
+
         <div class="team-member">
-          <img src="images/contact/vikram.jpg" alt="Vikram Iyer" />
+          <div class="member-image">
+            <img src="/placeholder.svg" alt="Vikram Iyer">
+          </div>
           <div class="member-info">
-            <strong>Vikram Iyer</strong><br/>
-            <a href="mailto:viiyer@ethz.ch">viiyer@ethz.ch</a>
-            <a href="https://www.linkedin.com/in/vikram-iyer/" target="_blank" class="social-link">
-              <img
-                src="https://cdn.simpleicons.org/linkedin/0077B5"
-                alt="LinkedIn"
-                class="social-icon"
-              />
-            </a>
+            <h3>Vikram Iyer</h3>
+            <div class="member-contacts">
+              <a href="mailto:viiyer@ethz.ch" class="contact-link">
+                <span class="contact-icon">✉️</span>
+                <span>viiyer@ethz.ch</span>
+              </a>
+              <a href="https://www.linkedin.com/in/vikram-iyer/" target="_blank" class="contact-link">
+                <span class="contact-icon">🔗</span>
+                <span>LinkedIn</span>
+              </a>
+            </div>
           </div>
         </div>
+
         <div class="team-member">
-          <img src="images/contact/roham.jpg" alt="Roham Zendehdel Nobari" />
+          <div class="member-image">
+            <img src="/placeholder.svg" alt="Roham Zendehdel Nobari">
+          </div>
           <div class="member-info">
-            <strong>Roham Zendehdel Nobari</strong><br/>
-            <a href="mailto:rzendehdel@ethz.ch">rzendehdel@ethz.ch</a>
-            <a href="https://www.linkedin.com/in/roham-nobari/" target="_blank" class="social-link">
-              <img
-                src="https://cdn.simpleicons.org/linkedin/0077B5"
-                alt="LinkedIn"
-                class="social-icon"
-              />
-            </a>
+            <h3>Roham Zendehdel Nobari</h3>
+            <div class="member-contacts">
+              <a href="mailto:rzendehdel@ethz.ch" class="contact-link">
+                <span class="contact-icon">✉️</span>
+                <span>rzendehdel@ethz.ch</span>
+              </a>
+              <a href="https://www.linkedin.com/in/roham-nobari/" target="_blank" class="contact-link">
+                <span class="contact-icon">🔗</span>
+                <span>LinkedIn</span>
+              </a>
+            </div>
           </div>
         </div>
+
         <div class="team-member">
-          <img src="images/contact/yagiz.jpg" alt="Yagiz Devre" />
+          <div class="member-image">
+            <img src="/placeholder.svg" alt="Yagiz Devre">
+          </div>
           <div class="member-info">
-            <strong>Yagiz Devre</strong><br/>
-            <a href="mailto:hd0216@princeton.edu">hd0216@princeton.edu</a>
-            <a href="https://www.linkedin.com/in/yagiz-devre/" target="_blank" class="social-link">
-              <img
-                src="https://cdn.simpleicons.org/linkedin/0077B5"
-                alt="LinkedIn"
-                class="social-icon"
-              />
-            </a>
+            <h3>Yagiz Devre</h3>
+            <div class="member-contacts">
+              <a href="mailto:hd0216@princeton.edu" class="contact-link">
+                <span class="contact-icon">✉️</span>
+                <span>hd0216@princeton.edu</span>
+              </a>
+              <a href="https://www.linkedin.com/in/yagiz-devre/" target="_blank" class="contact-link">
+                <span class="contact-icon">🔗</span>
+                <span>LinkedIn</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Comical Location Section -->
-    <section id="where-to-find-us">
-      <h3>Where to Find Us</h3>
-      <p>
-        You’ll probably catch us wandering the corridors of ETH Zürich—  
-        occasionally debating which bike rack has the best view.  
-        Or roaming Princeton’s leafy quads, chasing squirrels.
-      </p>
+    <!-- Location Section -->
+    <section class="section fade-in delay-1000">
+      <div class="card">
+        <h2>Where to Find Us</h2>
+        <p class="location-text">
+          You'll probably catch us wandering the corridors of ETH Zürich—occasionally debating which bike rack has the best view. 
+          Or roaming Princeton's leafy quads, chasing squirrels and contemplating the mysteries of robotic perception.
+        </p>
+      </div>
     </section>
 
-    <!-- Feedback / Issues -->
-    <section id="issues">
-      <h3>Feedback & Issues</h3>
-      <p>
-        Got bug reports or feature requests?  
-        <a href="https://github.com/your_repo_link/issues">Drop us an issue on GitHub</a>!
-      </p>
+    <!-- Feedback Section -->
+    <section class="section fade-in delay-1200">
+      <div class="card feedback-card">
+        <h2>Feedback & Issues</h2>
+        <p class="feedback-text">
+          Got bug reports, feature requests, or just want to say hi? We'd love to hear from you!
+        </p>
+        <a href="https://github.com/VikramIyr/SpotMap/issues" target="_blank" class="btn btn-github">
+          <span class="btn-icon">📁</span>
+          Open an Issue on GitHub
+        </a>
+      </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <p>© 2025 SpotMAP Project</p>
-    <p>
-      <a href="index.html" class="btn btn-home">
-        ← Back to Home
-      </a>
-    </p>
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-copyright">© 2025 SpotMAP Project</p>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
